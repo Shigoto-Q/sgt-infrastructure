@@ -1,2 +1,2 @@
-## Shi
+## Shigoto kubernetes config
 
