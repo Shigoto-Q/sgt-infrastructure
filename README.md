@@ -1,2 +1,1 @@
-## Shigoto kubernetes config
-
+## Shigoto infrastructure
