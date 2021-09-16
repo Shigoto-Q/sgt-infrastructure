@@ -19,3 +19,5 @@ jobs:
         run: |
          kubectl apply -f ./kubernetes_config/frontend/networking
          kubectl apply -f ./kubernetes_config/frontend/workloads
+         
+         kubectl set image deployments/shigoto-react react=${{ secrets.DOCKERHUB_USERNAME }}/shigoto_q_production_react:${{ github.event.client_payload.sha }}
