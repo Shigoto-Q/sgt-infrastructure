@@ -1,14 +1,18 @@
 name: Continuous Delivery
 
 on:
-  push:
-    branches:
-      - main
+  repository_dispatch:
+    types: [build-successful]
+    
 jobs:
-  build:
-    name: Build
+  myEvent:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.client_payload.ref }}
+      - run: echo ${{ github.event.client_payload.sha }}
+      
       - name: Configure Kubernetes context
         uses: Azure/k8s-set-context@v1
         with:
