@@ -16,7 +16,7 @@ jobs:
           kubeconfig: ${{ secrets.KUBE_CONFIG }}
 
       - name: Kubectl apply
-        run |
+        run: |
          kubectl apply -f ./kubernetes_config/config
          kubectl apply -f ./kubernetes_config/networking
          kubectl apply -f ./kubernetes_config/statefulsets
