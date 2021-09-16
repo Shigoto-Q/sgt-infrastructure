@@ -54,6 +54,31 @@ spec:
                 secretKeyRef:
                   key: TEST_SECRET_KEY
                   name: django-secret
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_DB
+                  name: django-secret
+            - name: POSTGRES_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_HOST
+                  name: django-secret
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_PASSWORD
+                  name: django-secret
+            - name: POSTGRES_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_PORT
+                  name: django-secret
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_USER
+                  name: django-secret
             - name: CELERY_FLOWER_USER
               valueFrom:
                 configMapKeyRef:
@@ -69,31 +94,6 @@ spec:
                 configMapKeyRef:
                   key: IPYTHONDIR
                   name: django-configmap
-            - name: POSTGRES_DB
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_DB
-                  name: postgres-configmap
-            - name: POSTGRES_HOST
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_HOST
-                  name: postgres-configmap
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PASSWORD
-                  name: postgres-configmap
-            - name: POSTGRES_PORT
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PORT
-                  name: postgres-configmap
-            - name: POSTGRES_USER
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_USER
-                  name: postgres-configmap
             - name: REDIS_URL
               valueFrom:
                 configMapKeyRef:
