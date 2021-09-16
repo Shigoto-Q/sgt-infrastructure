@@ -15,7 +15,7 @@ spec:
         component: react
     spec:
       containers:
-        - name: shigoto-react
+        - name: react
           image: bogdanp3trovic/shigoto_q_production_react
           ports:
             - containerPort: 3000
