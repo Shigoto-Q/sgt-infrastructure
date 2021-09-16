@@ -56,27 +56,27 @@ spec:
                   name: django-secret
             - name: POSTGRES_DB
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   key: POSTGRES_DB
                   name: django-secret
             - name: POSTGRES_HOST
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   key: POSTGRES_HOST
                   name: django-secret
             - name: POSTGRES_PASSWORD
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   key: POSTGRES_PASSWORD
                   name: django-secret
             - name: POSTGRES_PORT
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   key: POSTGRES_PORT
                   name: django-secret
             - name: POSTGRES_USER
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   key: POSTGRES_USER
                   name: django-secret
             - name: CELERY_FLOWER_USER
