@@ -1,0 +1,24 @@
+name: Continuous Delivery
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure Kubernetes context
+        uses: Azure/k8s-set-context@v1
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+
+      - name: Kubectl apply
+        run |
+         kubectl apply -f ./kubernetes_config/config
+         kubectl apply -f ./kubernetes_config/networking
+         kubectl apply -f ./kubernetes_config/statefulsets
+         kubectl apply -f ./kubernetes_config/storage
+         kubectl apply -f ./kubernetes_config/workloads
