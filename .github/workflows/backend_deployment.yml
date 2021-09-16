@@ -21,4 +21,7 @@ jobs:
          kubectl apply -f ./kubernetes_config/backend/networking
          kubectl apply -f ./kubernetes_config/backend/storage
          kubectl apply -f ./kubernetes_config/backend/workloads
+         
          kubectl set image deployments/shigoto-django django=${{ secrets.DOCKERHUB_USERNAME }}/shigoto_q_production_django:${{ github.event.client_payload.sha }}
+         kubectl set image deployments/shigoto-celeryworker celeryworker=${{ secrets.DOCKERHUB_USERNAME }}/shigoto_q_production_celeryworker:${{ github.event.client_payload.sha }}
+         kubectl set image deployments/shigoto-celerybeat celerybeat=${{ secrets.DOCKERHUB_USERNAME }}/shigoto_q_production_celerybeat:${{ github.event.client_payload.sha }}
