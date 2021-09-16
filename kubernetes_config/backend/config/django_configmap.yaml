@@ -8,6 +8,7 @@ data:
   SENTRY_ENVIRONMENT: "local"
   USE_DOCKER: "yes"
   PYTHONUNBUFFERED: "0"
+  DJANGO_SETTINGS_MODULE: "config.settings.production"
 kind: ConfigMap
 metadata:
   name: django-configmap
