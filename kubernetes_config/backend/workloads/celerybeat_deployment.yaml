@@ -24,11 +24,61 @@ spec:
           args: 
             - /start-celerybeat
           env:
+            - name: DJANGO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: DJANGO_SECRET_KEY
+                  name: django-secret
+            - name: WEBHOOK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  key: WEBHOOK_SECRET
+                  name: django-secret
+            - name: LIVE_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: LIVE_SECRET_KEY
+                  name: django-secret
             - name: CELERY_FLOWER_PASSWORD
               valueFrom:
                 configMapKeyRef:
                   key: CELERY_FLOWER_PASSWORD
                   name: django-configmap
+            - name: SENTRY_DSN
+              valueFrom:
+                secretKeyRef:
+                  key: SENTRY_DSN
+                  name: django-secret
+            - name: TEST_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: TEST_SECRET_KEY
+                  name: django-secret
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  key: POSTGRES_DB
+                  name: django-secret
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  key: POSTGRES_HOST
+                  name: django-secret
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: POSTGRES_PASSWORD
+                  name: django-secret
+            - name: POSTGRES_PORT
+              valueFrom:
+                secretKeyRef:
+                  key: POSTGRES_PORT
+                  name: django-secret
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  key: POSTGRES_USER
+                  name: django-secret
             - name: CELERY_FLOWER_USER
               valueFrom:
                 configMapKeyRef:
@@ -39,98 +89,32 @@ spec:
                 configMapKeyRef:
                   key: DOCKER_SERVICE_URL
                   name: django-configmap
-            - name: GKE_CLUSTER_NAME
-              valueFrom:
-                configMapKeyRef:
-                  key: GKE_CLUSTER_NAME
-                  name: django-configmap
-            - name: GKE_PROJECT_NAME
-              valueFrom:
-                configMapKeyRef:
-                  key: GKE_PROJECT_NAME
-                  name: django-configmap
-            - name: GKE_SERVICE_ACCOUNT_NAME
-              valueFrom:
-                configMapKeyRef:
-                  key: GKE_SERVICE_ACCOUNT_NAME
-                  name: django-configmap
-            - name: GKE_ZONE
-              valueFrom:
-                configMapKeyRef:
-                  key: GKE_ZONE
-                  name: django-configmap
-            - name: GOOGLE_APPLICATION_CREDENTIALS
-              valueFrom:
-                configMapKeyRef:
-                  key: GOOGLE_APPLICATION_CREDENTIALS
-                  name: django-configmap
             - name: IPYTHONDIR
               valueFrom:
                 configMapKeyRef:
                   key: IPYTHONDIR
                   name: django-configmap
-            - name: LIVE_SECRET_KEY
-              valueFrom:
-                configMapKeyRef:
-                  key: LIVE_SECRET_KEY
-                  name: django-configmap
-            - name: POSTGRES_DB
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_DB
-                  name: postgres-configmap
-            - name: POSTGRES_HOST
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_HOST
-                  name: postgres-configmap
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PASSWORD
-                  name: postgres-configmap
-            - name: POSTGRES_PORT
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_PORT
-                  name: postgres-configmap
-            - name: POSTGRES_USER
-              valueFrom:
-                configMapKeyRef:
-                  key: POSTGRES_USER
-                  name: postgres-configmap
             - name: REDIS_URL
               valueFrom:
                 configMapKeyRef:
                   key: REDIS_URL
-                  name: django-configmap
-            - name: SENTRY_DSN
-              valueFrom:
-                configMapKeyRef:
-                  key: SENTRY_DSN
                   name: django-configmap
             - name: SENTRY_ENVIRONMENT
               valueFrom:
                 configMapKeyRef:
                   key: SENTRY_ENVIRONMENT
                   name: django-configmap
-            - name: TEST_SECRET_KEY
-              valueFrom:
-                configMapKeyRef:
-                  key: TEST_SECRET_KEY
-                  name: django-configmap
             - name: USE_DOCKER
               valueFrom:
                 configMapKeyRef:
                   key: USE_DOCKER
                   name: django-configmap
-            - name: WEBHOOK_SECRET
+            - name: HOST_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+            - name: DJANGO_SETTINGS_MODULE
               valueFrom:
                 configMapKeyRef:
-                  key: WEBHOOK_SECRET
-                  name: django-configmap
-            - name: PYTHONUNBUFFERED
-              valueFrom:
-                configMapKeyRef:
-                  key: PYTHONUNBUFFERED
+                  key: DJANGO_SETTINGS_MODULE
                   name: django-configmap
