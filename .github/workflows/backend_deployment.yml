@@ -20,4 +20,4 @@ jobs:
          kubectl apply -f ./kubernetes_config/backend/config
          kubectl apply -f ./kubernetes_config/backend/networking
          kubectl apply -f ./kubernetes_config/backend/storage
-         kubectl apply -f ./kubernetes_config/backend/backend_workloads
+         kubectl apply -f ./kubernetes_config/backend/workloads
