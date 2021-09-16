@@ -5,7 +5,7 @@ on:
     types: [build-successful]
     
 jobs:
-  myEvent:
+  Kubernetes:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
