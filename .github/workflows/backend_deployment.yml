@@ -17,7 +17,7 @@ jobs:
 
       - name: Kubectl apply
         run: |
-         kubectl apply -f ./kubernetes_config/config
-         kubectl apply -f ./kubernetes_config/networking
-         kubectl apply -f ./kubernetes_config/storage
-         kubectl apply -f ./kubernetes_config/workloads
+         kubectl apply -f ./kubernetes_config/backend/config
+         kubectl apply -f ./kubernetes_config/backend/networking
+         kubectl apply -f ./kubernetes_config/backend/storage
+         kubectl apply -f ./kubernetes_config/backend/backend_workloads
