@@ -113,3 +113,8 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: DJANGO_SETTINGS_MODULE
+              valueFrom:
+                configMapKeyRef:
+                  key: DJANGO_SETTINGS_MODULE
+                  name: django-configmap
