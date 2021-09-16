@@ -18,4 +18,4 @@ jobs:
       - name: Kubectl apply
         run: |
          kubectl apply -f ./kubernetes_config/frontend/networking
-         kubectl apply -f ./kubernetes_config/frontend/backend_workloads
+         kubectl apply -f ./kubernetes_config/frontend/workloads
