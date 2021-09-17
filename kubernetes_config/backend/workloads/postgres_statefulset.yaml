@@ -42,14 +42,15 @@ spec:
             secretKeyRef:
               key: POSTGRES_USER
               name: django-secret
+        - name: PGDATA
+          value: /data/pgdata
         image: bogdanp3trovic/shigoto_q_production_postgres
         name: postgres
         ports:
         - containerPort: 5432
         volumeMounts:
-        - mountPath: /var/lib/postgresql/data
+        - mountPath: /data
           name: postgres-data
-          subPath: postgres
       serviceAccountName: ""
       volumes:
       - name: postgres-data
