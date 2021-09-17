@@ -19,29 +19,29 @@ spec:
       - env:
         - name: POSTGRES_DB
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               key: POSTGRES_DB
-              name: postgres-configmap
+              name: django-secret
         - name: POSTGRES_HOST
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               key: POSTGRES_HOST
-              name: postgres-configmap
+              name: django-secret
         - name: POSTGRES_PASSWORD
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               key: POSTGRES_PASSWORD
-              name: postgres-configmap
+              name: django-secret
         - name: POSTGRES_PORT
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               key: POSTGRES_PORT
-              name: postgres-configmap
+              name: django-secret
         - name: POSTGRES_USER
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               key: POSTGRES_USER
-              name: postgres-configmap
+              name: django-secret
         image: bogdanp3trovic/shigoto_q_production_postgres
         name: postgres
         ports:
