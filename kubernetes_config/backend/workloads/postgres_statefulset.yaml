@@ -17,31 +17,31 @@ spec:
     spec:
       containers:
       - env:
-          - name: POSTGRES_DB
-            valueFrom:
-              secretKeyRef:
-                key: POSTGRES_DB
-                name: django-secret
-          - name: POSTGRES_HOST
-            valueFrom:
-              secretKeyRef:
-                key: POSTGRES_HOST
-                name: django-secret
-          - name: POSTGRES_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                key: POSTGRES_PASSWORD
-                name: django-secret
-          - name: POSTGRES_PORT
-            valueFrom:
-              secretKeyRef:
-                key: POSTGRES_PORT
-                name: django-secret
-          - name: POSTGRES_USER
-            valueFrom:
-              secretKeyRef:
-                key: POSTGRES_USER
-                name: django-secret
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              key: POSTGRES_DB
+              name: django-secret
+        - name: POSTGRES_HOST
+          valueFrom:
+            secretKeyRef:
+              key: POSTGRES_HOST
+              name: django-secret
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: POSTGRES_PASSWORD
+              name: django-secret
+        - name: POSTGRES_PORT
+          valueFrom:
+            secretKeyRef:
+              key: POSTGRES_PORT
+              name: django-secret
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              key: POSTGRES_USER
+              name: django-secret
         image: bogdanp3trovic/shigoto_q_production_postgres
         name: postgres
         ports:
