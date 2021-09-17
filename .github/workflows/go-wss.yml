@@ -20,4 +20,4 @@ jobs:
           kubectl apply -f ./kubernetes_config/services/wss-result-service/networking
           kubectl apply -f ./kubernetes_config/services/wss-result-service/workloads
 
-          kubectl set image deployments/wss-go wss-go=${{ secrets.DOCKERHUB_USERNAME }}/shigoto_production_result_service:${{ github.event.client_payload.sha }}
+          kubectl set image deployments/shigoto-wss-go wss-go=${{ secrets.DOCKERHUB_USERNAME }}/shigoto_production_result_service:${{ github.event.client_payload.sha }}
