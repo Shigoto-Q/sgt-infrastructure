@@ -29,3 +29,17 @@ spec:
                     name: django
                     port:
                       number: 5000
+              - path: /wss/
+                pathType: Prefix
+                backend:
+                  service:
+                    name: wss-go
+                    port:
+                      number: 8080
+              - path: /go/
+                pathType: Prefix
+                backend:
+                  service:
+                    name: go
+                    port:
+                      number: 5050
