@@ -14,8 +14,6 @@ spec:
       labels:
         component: wss-go
     spec:
-      imagePullSecrets:
-        - name: regcred
       containers:
         - name: wss-go
           image: bogdanp3trovic/shigoto_production_result_service
