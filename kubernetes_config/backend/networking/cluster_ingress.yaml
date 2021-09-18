@@ -47,3 +47,10 @@ spec:
                     name: wss-go
                     port:
                       number: 8080
+              - path: /results
+                pathType: Prefix
+                backend:
+                  service:
+                    name: wss-go
+                    port:
+                      number: 8080
