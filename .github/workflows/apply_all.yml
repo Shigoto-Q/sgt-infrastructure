@@ -18,4 +18,4 @@ jobs:
 
       - name: Kubectl apply
         run: |
-         kubectl apply -f --recursive ./kubernetes_config
+         kubectl apply -f ./kubernetes_config --recursive
