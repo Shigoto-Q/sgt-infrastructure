@@ -18,4 +18,9 @@ jobs:
 
       - name: Kubectl apply
         run: |
-         kubectl apply -f ./kubernetes_config --recursive
+         kubectl apply -f ./kubernetes_config/backend/config
+         kubectl apply -f ./kubernetes_config/backend/networking
+         kubectl apply -f ./kubernetes_config/backend/storage
+         kubectl apply -f ./kubernetes_config/backend/workloads
+         kubectl apply -f ./kubernetes_config/frontend --recursive
+         kubectl apply -f ./kubernetes_config/services --recursive
