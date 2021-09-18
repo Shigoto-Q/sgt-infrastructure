@@ -5,6 +5,10 @@ metadata:
     annotations:
         kubernetes.io/ingress.class: nginx
 spec:
+    tls:
+      - hosts:
+        - shigoto.live
+        secretName: shigoto-q-tls
     rules:
       - host: shigoto.live
         http:
