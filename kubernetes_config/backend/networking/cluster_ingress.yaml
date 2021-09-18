@@ -6,7 +6,8 @@ metadata:
         kubernetes.io/ingress.class: nginx
 spec:
     rules:
-      - http:
+      - host: shigoto.live
+        http:
             paths:
               - path: /
                 pathType: Prefix
@@ -29,13 +30,6 @@ spec:
                     name: django
                     port:
                       number: 5000
-              - path: /.*
-                pathType: Prefix
-                backend:
-                  service:
-                    name: wss-go
-                    port:
-                      number: 8080
               - path: /go/
                 pathType: Prefix
                 backend:
@@ -43,3 +37,13 @@ spec:
                     name: go
                     port:
                       number: 5050
+      - host: ws.shigoto.live
+        http:
+            paths:
+              - path: /status
+                pathType: Prefix
+                backend:
+                  service:
+                    name: wss-go
+                    port:
+                      number: 8080
