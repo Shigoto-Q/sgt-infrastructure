@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1 
+kind: Certificate
+metadata:
+  name: shigoto-q
+  namespace: default
+spec:
+  dnsNames:
+  - shigoto.live
+  - ws.shigoto.live
+  secretName: shigoto-q-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer
