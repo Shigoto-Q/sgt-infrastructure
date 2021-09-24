@@ -8,6 +8,7 @@ spec:
   - shigoto.live
   - ws.shigoto.live
   - api.shigoto.live
+  - image.shigoto.live
   secretName: shigoto-q-tls
   issuerRef:
     name: letsencrypt-cluster-issuer

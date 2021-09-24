@@ -15,6 +15,7 @@ spec:
         - shigoto.live
         - ws.shigoto.live
         - api.shigoto.live
+        - image.shigoto.live
         secretName: shigoto-q-tls
     rules:
       - host: shigoto.live
@@ -54,3 +55,13 @@ spec:
                   name: django
                   port:
                     number: 5000
+      - host: image.shigoto.live
+        http:
+          paths:
+            - path: /
+              pathType: Prefix
+              backend:
+                service:
+                  name: go
+                  port:
+                    number: 5050
