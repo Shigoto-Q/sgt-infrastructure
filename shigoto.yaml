@@ -1,0 +1,11 @@
+resources:
+  - base/sgt-backend-dep.yaml
+  - base/sgt-backend-svc.yaml
+  - base/sgt-frontend-dep.yaml
+  - base/sgt-frontend-svc.yaml
+  - base/sgt-db-dep.yaml
+  - base/sgt-db-svc.yaml
+  - base/sgt-redis-dep.yaml
+  - base/sgt-redis-svc.yaml
+  - base/sgt-celery-dep.yaml
+  - base/sgt-celery-svc.yaml

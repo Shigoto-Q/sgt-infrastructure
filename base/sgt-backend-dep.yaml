@@ -1,0 +1,59 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sgt-backend
+  labels:
+    name: sgt-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: sgt-backend
+  template:
+    metadata:
+      labels:
+        name: sgt-backend
+    spec:
+      containers:
+      - name: orders
+        image: simeonaleksov/shigoto_q_production_django:latest
+        resources:
+          limits:
+            cpu: 500m
+            memory: 500Mi
+          requests:
+            cpu: 200m
+            memory: 500Mi
+        ports:
+        - containerPort: 80
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 10001
+          capabilities:
+            drop:
+              - all
+            add:
+              - NET_BIND_SERVICE
+          readOnlyRootFilesystem: true
+        volumeMounts:
+        - mountPath: /tmp
+          name: tmp-volume
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 300
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 180
+          periodSeconds: 3
+      volumes:
+        - name: tmp-volume
+          emptyDir:
+            medium: Memory
+      nodeSelector:
+        beta.kubernetes.io/os: linux

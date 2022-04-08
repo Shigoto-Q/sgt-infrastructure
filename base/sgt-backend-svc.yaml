@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sgt-backend
+  labels:
+    name: sgt-backend
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    name: sgt-backend
