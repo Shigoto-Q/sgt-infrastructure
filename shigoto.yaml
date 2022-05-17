@@ -1,5 +1,0 @@
-resources:
-  - base/backend
-  - base/cert-manager
-  - base/frontend
-  - base/services
