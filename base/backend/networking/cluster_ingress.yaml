@@ -25,7 +25,7 @@ spec:
                 pathType: Prefix
                 backend:
                   service:
-                    name: frontend
+                    name: sgt-frontend
                     port:
                       number: 80
               - path: /go/

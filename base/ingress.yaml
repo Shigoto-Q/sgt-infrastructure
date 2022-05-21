@@ -11,7 +11,12 @@ metadata:
 spec:
     tls:
       - hosts:
-        - shigo.to
+          - shigo.to
+          - ws.shigo.to
+          - api.shigo.to
+          - image.shigo.to
+          - grafana.shigo.to
+          - influx.shigo.to
         secretName: shigoto-q-tls
     rules:
       - host: shigo.to
@@ -21,6 +26,36 @@ spec:
                 pathType: Prefix
                 backend:
                   service:
-                    name: sgt-frontend-svc
+                    name: sgt-frontend
                     port:
                       number: 80
+      - host: api.shigo.to
+        http:
+          paths:
+            - path: /
+              pathType: Prefix
+              backend:
+                service:
+                  name: django
+                  port:
+                    number: 5000
+      - host: grafana.shigo.to
+        http:
+          paths:
+            - path: /
+              pathType: Prefix
+              backend:
+                service:
+                  name: grafana
+                  port:
+                    number: 3000
+      - host: influx.shigo.to
+        http:
+          paths:
+            - path: /
+              pathType: Prefix
+              backend:
+                service:
+                  name: influxdb-service
+                  port:
+                    number: 8086
