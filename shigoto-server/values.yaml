@@ -1,0 +1,35 @@
+replicaCount: 1
+
+image:
+  repository: bogdanp3trovic/shigoto_q_production_django
+  pullPolicy: Always
+
+imagePullSecrets:
+  - name: regcred
+
+deployment:
+  port: 8000
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
+resources: {}
+
+autoscaling:
+  enabled: false
+
+nodeSelector: {}
+
+tolerations: []
