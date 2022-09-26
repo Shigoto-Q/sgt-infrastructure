@@ -23,10 +23,14 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-              containerPort: {{ .Values.deployment.port }}
+            - containerPort: {{ .Values.deployment.port }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.deployment.env }}
+          {{- with .Values.deployment.args }}
           args:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.deployment.env }}
+          env:
             {{- toYaml . | nindent 12 }}
           {{- end }}
