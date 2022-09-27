@@ -3,6 +3,7 @@ replicaCount: 1
 image:
   repository: bogdanp3trovic/shigoto_q_production_django
   pullPolicy: Always
+  tag: 1.0.0
 
 imagePullSecrets:
   - name: regcred
