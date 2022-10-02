@@ -1,7 +1,5 @@
 replicaCount: 1
 
-currentimage: simeonaleksov/sgt-production-frontend:latest
-
 image:
   repository: simeonaleksov/sgt-production-frontend
   pullPolicy: Always
