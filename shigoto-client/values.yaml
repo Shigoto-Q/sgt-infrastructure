@@ -1,9 +1,9 @@
 replicaCount: 1
 
+currentimage: simeonaleksov/sgt-production-frontend:latest
+
 image:
-  repository: bogdanp3trovic/shigoto_q_production_frontend
   pullPolicy: Always
-  tag: 1.0.0
 
 imagePullSecrets:
   - name: regcred
@@ -16,6 +16,7 @@ deployment:
 service:
   type: ClusterIP
   port: 80
+  targetPort: 3000
 
 
 resources: {}

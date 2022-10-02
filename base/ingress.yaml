@@ -26,7 +26,7 @@ spec:
                 pathType: Prefix
                 backend:
                   service:
-                    name: sgt-frontend
+                    name: shigoto-client-service
                     port:
                       number: 80
       - host: api.shigo.to
@@ -36,7 +36,7 @@ spec:
               pathType: Prefix
               backend:
                 service:
-                  name: django
+                  name: sgt-server
                   port:
                     number: 5000
       - host: grafana.shigo.to
