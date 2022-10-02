@@ -5,11 +5,12 @@ metadata:
   namespace: default
 spec:
   dnsNames:
-  - shigo.to
-  - ws.shigo.to
-  - api.shigo.to
-  - grafana.shigo.to
-  - influx.shigo.to
+  - shigo.live
+  - ws.shigo.live
+  - api.shigo.live
+  - image.shigo.live
+  - grafana.shigo.live
+  - influx.shigo.live
   secretName: shigoto-q-tls
   issuerRef:
     name: letsencrypt-cluster-issuer
