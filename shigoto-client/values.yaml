@@ -1,39 +1,27 @@
 replicaCount: 1
-
 image:
   repository: simeonaleksov/sgt-production-frontend
   pullPolicy: Always
-  tag: latest
-
+  tag: test
 imagePullSecrets:
   - name: regcred
-
 deployment:
   port: 80
-
-
-
 service:
   type: ClusterIP
   port: 80
   targetPort: 80
-
-
 resources: {}
-
 autoscaling:
   enabled: false
-
 nodeSelector: {}
-
 tolerations: []
-
 configmap:
   data:
-    CELERY_FLOWER_PASSWORD: "debug"
-    CELERY_FLOWER_USER: "debug"
-    REDIS_URL: "redis://redis:6379/0"
-    SENTRY_ENVIRONMENT: "local"
-    USE_DOCKER: "yes"
-    PYTHONUNBUFFERED: "0"
-    DJANGO_SETTINGS_MODULE: "config.settings.production"
+    CELERY_FLOWER_PASSWORD: debug
+    CELERY_FLOWER_USER: debug
+    REDIS_URL: redis://redis:6379/0
+    SENTRY_ENVIRONMENT: local
+    USE_DOCKER: 'yes'
+    PYTHONUNBUFFERED: '0'
+    DJANGO_SETTINGS_MODULE: config.settings.production
