@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: simeonaleksov/sgt-production-frontend
   pullPolicy: Always
-  tag: test
+  tag: test1
 imagePullSecrets:
   - name: regcred
 deployment:
