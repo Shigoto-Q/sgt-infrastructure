@@ -4,6 +4,10 @@ metadata:
   name: shigoto-client-deployment
   labels:
     {{- include "shigoto-client.labels" . | nindent 4 }}
+  annotations:
+      vault.hashicorp.com/agent-inject: "true"
+      vault.hashicorp.com/tls-skip-verify: "true"
+      vault.hashicorp.com/role: "shigoto-client-role"
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -14,6 +18,7 @@ spec:
       labels:
         {{- include "shigoto-client.selectorLabels" . | nindent 8 }}
     spec:
+      serviceAccountName: shigoto-client-sa
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
